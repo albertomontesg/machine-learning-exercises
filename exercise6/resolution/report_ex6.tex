@@ -1,0 +1,44 @@
+\documentclass{ethz_report}
+\usepackage{blindtext}
+
+
+\title{Series 6 - Neural Networks}
+\subject{Machine Learning}
+\author{Alberto Montes}
+\email{malberto@student.ethz.ch}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1 - Backpropagation for classification}
+
+
+\section*{Problem 2 - Maximum likelihood estimator for regression}
+
+\begin{equation}
+    p(t|x,w) = \mathcal{N}(t|y(x,w),\beta^{-1} I)
+\end{equation}
+
+Computing the join probability for all the samples, we get:
+
+\begin{equation}
+    p(t|x,w) = \prod_{n=1}^N p(t_n|x_n, w)
+\end{equation}
+
+Maximizing the likelihood function under the conditional distribution we obtain:
+
+\begin{align}
+    \arg\max_w~p(t|x,w) &= \arg\max_w~\prod_{n=1}^N p(t_n|x_n, w) \\
+    &= \arg\max_w~\prod_{n=1}^N (2 \pi \beta^{-2})^{1/2} \exp \left( -\frac{1}{2} \beta^2 \| y_n(x_n,w)-t_n \|^2 \right) \\
+    &= \arg\max_w~(2 \pi \beta^{-2})^{N/2} \exp \left( -\frac{1}{2} \beta^2 \sum_{n=1}^N \| y_n(x_n,w)-t_n \|^2 \right) \\
+    &= \arg\max_w~\exp \left( -\frac{1}{2} \beta^2 \sum_{n=1}^N \| y_n(x_n,w)-t_n \|^2 \right) \\
+    &= \arg\min_w~\frac{1}{2} \sum_{n=1}^N \| y_n(x_n,w)-t_n \|^2 \\
+    &= \arg\min_w~E(w)
+\end{align}
+
+\section*{Problem 3 - Maximum likelihood estimator for classification}
+
+
+
+\end{document}
